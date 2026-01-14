@@ -1,6 +1,8 @@
 <?php
-// namespace services;
+namespace services;
 
+use PDO;
+use PDOException;
 class Database{
 
 
@@ -27,4 +29,4 @@ if(!self::$pdo){
 }
 $Pdo=Database::getConnection();
 
-var_dump($Pdo);
+

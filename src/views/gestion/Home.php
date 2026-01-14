@@ -4,12 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Annuaire des Professionnels</title>
-    <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+         <style>
+        .navbar-brand { font-weight: bold; color: #2c3e50; }
+        .nav-link:hover { color: #3498db !important; }
+    </style>
 <style>
-        :root {
-    --primary: #1e293b;
-    --accent: #3b82f6;
-    --avocat-color: #dbeafe;
+    /* ajoute */
+    button {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    button:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    button:active {
+        transform: translateY(0);
+    }
+
+    .btn-add {
+    background-color: #27ae60;
+    color: white;
+    padding: 8px 18px;
+    border: 2px solid transparent;
+    border-radius: 50px; /* Rounded pill shape */
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+      }
+      
+      .btn-add:hover {
+          background-color: white;
+          color: #27ae60;
+          border: 2px solid #27ae60;
+      }
+        /* fin */
+        
+            :root {
+        --primary: #1e293b;
+        --accent: #3b82f6;
+        --avocat-color: #dbeafe;
     --avocat-text: #1e40af;
     --huissier-color: #fef3c7;
     --huissier-text: #92400e;
@@ -155,7 +202,12 @@
 </style>
 </head>
 <body>
+<!-- :::::::::::::::: -->
+ <?php
+ require_once "src/views/public/header.php";
+ ?>
 
+<!-- ::::::::::::::::: -->
 <div class="display-container">
     <header class="page-header">
         <div>
@@ -173,26 +225,33 @@
         <button class="filter-btn">Huissiers</button>
     </div>
 
+    <a href="Create"><button class="btn-add" >Ajouter +</button></a>
+    <br><br><br>
     <div class="profile-grid">
-        
+        <?php  foreach($Avocats as $avocat){?>
         <div class="profile-card">
             <div class="card-header">
                 <span class="badge avocat">Avocat</span>
                 <span class="location">Paris, FR</span>
             </div>
             <div class="profile-info">
-                <div class="avatar">MD</div>
-                <h3>Me. Marc Dupont</h3>
-                <p class="specialty">Droit de la Famille</p>
-                <p class="exp">12 ans d'expérience</p>
+                <div class="avatar">AV</div>
+                <h3><?= $avocat['name'] ?></h3>
+                <p class="specialty"><?= $avocat['specialitée'] ?></p>
+                <p class="exp"><?= $avocat['annee_experience'] ?> ans d'expérience</p>
+                <p class="exp">Location : <?= $Avocat->getVille($avocat['ville_id']) ?> </p>
             </div>
             <div class="card-footer">
-                <span class="status-online">Consultation en ligne</span>
+                <?php if($avocat['consultation_en_ligne']==true){?>
+                <span class="status-online">Consultation en ligne ✅</span>
+                <?php }?>
                 <button class="view-btn">Voir Profil</button>
             </div>
-        </div>
+            
+        </div> 
+        <?php  }?>
  <!-- :::::::::::::::::: -->
-         <div class="profile-card">
+         <!-- <div class="profile-card">
             <div class="card-header">
                 <span class="badge avocat">Avocat</span>
                 <span class="location">Paris, FR</span>
@@ -207,42 +266,31 @@
                 <span class="status-online">Consultation en ligne</span>
                 <button class="view-btn">Voir Profil</button>
             </div>
-        </div>
+        </div> -->
  <!-- ----------------- -->
+ 
+      <?php  foreach($Huissiers as $huissier){?>
         <div class="profile-card">
             <div class="card-header">
                 <span class="badge huissier">Huissier</span>
                 <span class="location">Lyon, FR</span>
             </div>
             <div class="profile-info">
-                <div class="avatar">AL</div>
-                <h3>Me. Alice Legrand</h3>
-                <p class="specialty">Recouvrement / Constats</p>
-                <p class="exp">8 ans d'expérience</p>
+                <div class="avatar">HU</div>
+                <h3><?= $huissier['name'] ?></h3>
+                <p class="specialty"><?= $huissier['types_actes'] ?></p>
+                <p class="exp"><?= $huissier['annee_experience'] ?> ans d'expérience</p>
+                <p class="exp">Location : <?= $Huissier->getVille($huissier['ville_id']) ?> </p>
+
             </div>
             <div class="card-footer">
-                <span class="status-offline">Bureau uniquement</span>
+                <span class="status-offline"></span>
                 <button class="view-btn">Voir Profil</button>
             </div>
         </div>
-        <!-- ::::::::::::::::::::::::: -->
-                 <div class="profile-card">
-            <div class="card-header">
-                <span class="badge huissier">Huissier</span>
-                <span class="location">Lyon, FR</span>
-            </div>
-            <div class="profile-info">
-                <div class="avatar">AL</div>
-                <h3>Me. Alice Legrand</h3>
-                <p class="specialty">Recouvrement / Constats</p>
-                <p class="exp">8 ans d'expérience</p>
-            </div>
-            <div class="card-footer">
-                <span class="status-offline">Bureau uniquement</span>
-                <button class="view-btn">Voir Profil</button>
-            </div>
-        </div>
-         <!-- ------------------------ -->
+    <?php  }?>
+
+    
 
     </div>
 </div>

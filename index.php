@@ -1,6 +1,7 @@
 <?php
+require_once "autoloading.php";
 
-require_once "apps/roater/Roater.php";
+use roater\Roater;
 
 Roater::Routerr();
 

@@ -1,20 +1,27 @@
 <?php
+namespace roater;
 
+class Roater
+{
 
-class Roater{
-
-  public static array $Route=[
-    "Avocat"=>"AvocatController",
-    "Huissier"=>"HuissierController",
+  public static array $Route = [
+    "roster" => "rosterController",
+    "home" => "homeController",
+    "Statistique" => "StatistiqueController",
+    "Create" => "CreateController",
+    // "Huissier" => "HuissierController",
   ];
 
-  public static function Routerr(){
-    $page=$_GET['page'] ?? "Home";
-    if(array_key_exists($page,self::$Route)){
-        require_once __DIR__."/../controller/".$page."Controller.php";
+  public static function Routerr()
+  {
+    $page = $_GET['page'] ?? 'home';
+
+    if (array_key_exists($page, self::$Route)) {
+      $controllerName = self::$Route[$page];
+      require_once "apps/controller/" . $controllerName . ".php";
     }
+    //  else {
+    //   echo "404 Page not exist";
+    // }
   }
-
-
 }
-

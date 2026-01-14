@@ -1,0 +1,14 @@
+RewriteEngine On 
+ # new url in Apache
+
+# RewriteBase /ISTICHARA/
+RewriteCond %{REQUEST_FILENAME} !-f 
+  # verification the url the user typed if not existing file(security "js,css...")
+RewriteCond %{REQUEST_FILENAME} !-d 
+  # verification if the url not file disponible
+RewriteRule ^(.+)$ index.php?page=$1  
+  # action if the conditions passes true => takes everything the user typed securitly to index.php
+
+
+
+  

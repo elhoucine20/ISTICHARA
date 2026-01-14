@@ -130,7 +130,7 @@
 </head>
 <body>
 
-<form>
+<form method="POST" action="">
 
   <!-- COMMUN -->
   <h3>Informations générales</h3>
@@ -151,11 +151,19 @@
   </div>
 
   <!-- AVOCAT -->
+  
   <div id="avocat-fields" style="display:none;">
     <h4>Détails Avocat</h4>
-
+    
     <label for="specialite">Spécialité</label>
-    <input type="text" id="specialite" name="specialite">
+
+    <select type="text" id="specialite" name="specialite">
+      <option value="">le tout</option>
+      <option value="Droit_pénal">Droit Pénal</option>
+      <option value="civil">Droit Civil</option>
+      <option value="famille">Droit de la Famille</option>
+      <option value="affaires">Droit des Affaires</option>
+    </select>
 
     <label for="consultation">Consultation en ligne</label>
     <select id="consultation" name="consultation">
@@ -163,15 +171,20 @@
       <option value="0">Non</option>
     </select>
   </div>
-
+  
   <!-- HUISSIER -->
   <div id="huissier-fields" style="display:none;">
     <h4>Détails Huissier</h4>
-
+    
     <label for="type_acte">Type d'actes</label>
-    <input type="text" id="type_acte" name="type_acte">
+    <select type="text" id="type_acte" name="type_acte">
+      <option value="">le tout</option>
+      <option value="Signification">Signification</option>
+      <option value="exécution">Exécution</option>
+      <option value="constats">Constats</option>
+    </select>
   </div>
-
+  
   <br>
   <button type="submit">Envoyer</button>
 
@@ -189,11 +202,21 @@
     avocatFields.style.display = "block";
     huissierFields.style.display = "none";
   });
+  // btnAvocat.addEventListener("dblclick", () => {
+  //   avocatFields.style.display = "none";
+  // });
+
+
+
+
 
   btnHuissier.addEventListener("click", () => {
     huissierFields.style.display = "block";
     avocatFields.style.display = "none";
   });
+  //  btnHuissier.addEventListener("dblclick", () => {
+  //   huissierFields.style.display = "none";
+  // });
 </script>
 
 </body>
