@@ -28,12 +28,10 @@ class Person {
         return $result;
     } 
 
-    // public function getVille($id_ville){
-    //    $ville= $this->connection->query("SELECT name FROM ville WHERE id=$id_ville")->fetchColumn();
-    //    return $ville;
-
-    // }
-
+public function Delete($table,$id){
+    $stmt = $this->connection->prepare("DELETE FROM $table WHERE id = :idd");
+    $stmt->execute([':idd'=>$id]);
+}
 
 
 }

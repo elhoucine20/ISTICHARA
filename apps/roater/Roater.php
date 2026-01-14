@@ -9,6 +9,8 @@ class Roater
     "home" => "homeController",
     "Statistique" => "StatistiqueController",
     "Create" => "CreateController",
+    "DeleteHuissier" => "DeleteHuissierController",
+    "DeleteAvocat" => "DeleteAvocatController",
     // "Huissier" => "HuissierController",
   ];
 

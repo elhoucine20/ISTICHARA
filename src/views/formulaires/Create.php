@@ -181,6 +181,7 @@
     <h4>Détails Huissier</h4>
     
     <label for="type_acte">Type d'actes</label>
+
     <select type="text" id="type_acte" name="type_acte">
       <option value="">le tout</option>
       <option value="Signification">Signification</option>
@@ -190,7 +191,7 @@
   </div>
   
   <br>
-  <button type="submit">Envoyer</button>
+  <button type="submit" name="submit">Envoyer</button>
 
 </form>
 

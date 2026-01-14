@@ -232,7 +232,9 @@
         <div class="profile-card">
             <div class="card-header">
                 <span class="badge avocat">Avocat</span>
-                <span class="location">Paris, FR</span>
+              <a href="DeleteAvocat&id=<?=$avocat['id']?>">
+                   <button class="location">Delete</button>
+              </a>  
             </div>
             <div class="profile-info">
                 <div class="avatar">AV</div>
@@ -273,7 +275,9 @@
         <div class="profile-card">
             <div class="card-header">
                 <span class="badge huissier">Huissier</span>
-                <span class="location">Lyon, FR</span>
+              <a href="DeleteHuissier&id=<?=$huissier['id']?>">
+                   <button class="location">Delete</button>
+              </a>             
             </div>
             <div class="profile-info">
                 <div class="avatar">HU</div>

@@ -16,21 +16,24 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $name = $_POST['name'];
     $ann_experience = $_POST['annee_experience'];
     $ville_id = $_POST['ville'];
-    if(empty($_POST['specialite']) && empty($_POST['consultation'])){
+    if(empty($_POST['specialite']) ){
         
-        $type_acte = $_POST['type_acte'];
-         $huissier = new Huissier($Pdo);
-            $huissier->Create($name,$ann_experience,$type_acte,$ville_id);
+            $type_acte = $_POST['type_acte'];
+
+            $huissier = new Huissier($Pdo);
+            $huissier->CreateHuissier($name,$ann_experience,$type_acte,$ville_id);
+             header("location:roster");  
+
         }else if(empty($_POST['type_acte'])){
+
             $specialite = $_POST['specialite'];
             $consultation = $_POST['consultation'];
 
             $avocat = new Avocat($Pdo);
-            $avocat->Create($name,$ann_experience,$specialite,$consultation,$ville_id);
+            $avocat->CreateAvocat($name,$ann_experience,$specialite,$consultation,$ville_id);
+             header("location:roster");  
             }
-            
-            
-            
-            }
+         
+}
             
             require_once "src/views/formulaires/Create.php";
