@@ -12,4 +12,15 @@ class Avocat extends Person {
     //     $result = $pdo->execute();
     //     return $result;
     // }    
+
+    
+    public function Create($name,$anne_experience,$specialite,$consultation,$ville_id){
+        $stmt = $this->connection->prepare("INSERT INTO  avocats SET name=:name,specialitée=:specialite,annee_experience=:annee,consultation_en_ligne=:consultation,ville_id=:ville");
+        $result = $stmt->execute([':name'=>$name,
+                                               ':specialite'=>$specialite,
+                                               ':annee'=>$anne_experience,
+                                               ':consultation'=>$consultation,
+                                               ':ville'=>$ville_id ]);
+        return $result;
+    }    
 }

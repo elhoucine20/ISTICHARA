@@ -142,7 +142,11 @@
   <input type="number" id="annee_experience" name="annee_experience" required>
 
   <label for="ville">Ville</label>
-  <input type="text" id="ville" name="ville" required>
+  <select type="text" id="ville" name="ville" required>
+    <?php foreach($leTouts as $ville){  ?>
+    <option value="<?=$ville['id']?>"><?=$ville['name']?></option>
+    <?php } ?>
+  </select>
 
   <!-- BUTTONS -->
   <div>

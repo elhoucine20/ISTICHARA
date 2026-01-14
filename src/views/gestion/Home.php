@@ -239,7 +239,7 @@
                 <h3><?= $avocat['name'] ?></h3>
                 <p class="specialty"><?= $avocat['specialitée'] ?></p>
                 <p class="exp"><?= $avocat['annee_experience'] ?> ans d'expérience</p>
-                <p class="exp">Location : <?= $Avocat->getVille($avocat['ville_id']) ?> </p>
+                <p class="exp">Location : <?= $Ville->getVille($avocat['ville_id']) ?> </p>
             </div>
             <div class="card-footer">
                 <?php if($avocat['consultation_en_ligne']==true){?>
@@ -280,7 +280,7 @@
                 <h3><?= $huissier['name'] ?></h3>
                 <p class="specialty"><?= $huissier['types_actes'] ?></p>
                 <p class="exp"><?= $huissier['annee_experience'] ?> ans d'expérience</p>
-                <p class="exp">Location : <?= $Huissier->getVille($huissier['ville_id']) ?> </p>
+                <p class="exp">Location : <?= $Ville->getVille($huissier['ville_id']) ?> </p>
 
             </div>
             <div class="card-footer">
