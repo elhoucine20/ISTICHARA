@@ -34,4 +34,13 @@ public function Delete($table,$id){
 }
 
 
+
+    public function getAll($id,$table){
+        $stmt = $this->connection->prepare("SELECT * FROM $table WHERE id = :id");
+        $stmt->execute([':id'=>$id]);
+        $result=$stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+
 }

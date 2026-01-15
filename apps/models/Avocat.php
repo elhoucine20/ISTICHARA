@@ -2,7 +2,7 @@
 namespace models;
 
 use models\Person;
-
+use PDO;
 
 class Avocat extends Person {
 
@@ -18,5 +18,24 @@ class Avocat extends Person {
                                                ':consultation'=>$consultation,
                                                ':ville'=>$ville_id ]);
         return $result;
-    }    
+    }  
+    
+    
+    // public function getAll($id){
+    //     $stmt = $this->connection->prepare("SELECT * FROM avocats WHERE id = :id");
+    //     $stmt->execute([':id'=>$id]);
+    //     $result=$stmt->fetch(PDO::FETCH_ASSOC);
+    //     return $result;
+    // }
+
+    public function UpdateAvocat($name,$specialite,$anne_experience,$consultation,$ville_id,$id){
+        $stmt = $this->connection->prepare("UPDATE avocats SET name=:name,specialitée=:specialite,annee_experience=:annee,consultation_en_ligne=:consultation,ville_id=:ville WHERE id = :id");
+
+         $stmt->execute([':name'=>$name,
+                                               ':specialite'=>$specialite,
+                                               ':annee'=>$anne_experience,
+                                               ':consultation'=>$consultation,
+                                               ':ville'=>$ville_id,
+                                               ':id'=>$id ]);
+    }
 }

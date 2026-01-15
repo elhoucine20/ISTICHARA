@@ -1,5 +1,12 @@
 <?php
 
+
+use models\Ville;
+$ville = new Ville($Pdo);
+$leTouts = $ville->getAllFromVille();
+
+
+
 $id = $_GET['id'];
 
 use models\Avocat;

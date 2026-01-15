@@ -1,13 +1,13 @@
 <?php
 
 
-use models\Ville;
 use models\Avocat;
 use models\Huissier;
 use services\Database;
 $Pdo=Database::getConnection();
 
 
+use models\Ville;
 $ville = new Ville($Pdo);
 $leTouts = $ville->getAllFromVille();
 

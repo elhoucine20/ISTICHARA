@@ -16,4 +16,15 @@ class Huissier extends Person {
                                                ':ville'=>$ville_id ]);
         return $result;
     }    
+
+
+        public function UpdateHuissier($name,$anne_experience,$types_actes,$ville_id,$id){
+        $stmt = $this->connection->prepare("UPDATE huissiers SET name=:name,types_actes=:type,annee_experience=:annee,ville_id=:ville WHERE id = :id");
+
+         $stmt->execute([':name'=>$name,
+                                               ':type'=>$types_actes,
+                                               ':annee'=>$anne_experience,
+                                               ':ville'=>$ville_id,
+                                               ':id'=>$id ]);
+        }
 }

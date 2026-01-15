@@ -247,7 +247,9 @@
                 <?php if($avocat['consultation_en_ligne']==true){?>
                 <span class="status-online">Consultation en ligne ✅</span>
                 <?php }?>
-                <button class="view-btn">Voir Profil</button>
+             <a href="ModifierAvocat&id=<?=$avocat['id']?>">
+                   <button class="location">Modifier</button>
+              </a>              
             </div>
             
         </div> 
@@ -289,7 +291,9 @@
             </div>
             <div class="card-footer">
                 <span class="status-offline"></span>
-                <button class="view-btn">Voir Profil</button>
+             <a href="ModifierHuissier&id=<?=$huissier['id']?>">
+                   <button class="location">Modifier</button>
+              </a>              
             </div>
         </div>
     <?php  }?>

@@ -11,7 +11,8 @@ class Roater
     "Create" => "CreateController",
     "DeleteHuissier" => "DeleteHuissierController",
     "DeleteAvocat" => "DeleteAvocatController",
-    // "Huissier" => "HuissierController",
+    "ModifierHuissier" => "ModifierHuissierController",
+    "ModifierAvocat" => "ModifierAvocatController",
   ];
 
   public static function Routerr()
@@ -22,8 +23,8 @@ class Roater
       $controllerName = self::$Route[$page];
       require_once "apps/controller/" . $controllerName . ".php";
     }
-    //  else {
-    //   echo "404 Page not exist";
-    // }
+     else {
+      echo "404 Page not exist";
+    }
   }
 }

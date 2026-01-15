@@ -2,146 +2,230 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Modifier mon Profil</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Form Profil Juridique</title>
   <style>
-    body {
-         font-family: Arial, sans-serif;
-         background-color: #f4f7f6;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         min-height: 100vh;
-         margin: 0;
-       }
-       
-       .simple-container {
-         width: 100%;
-         max-width: 450px;
-         padding: 20px;
-       }
-       
-       .edit-card {
-         background: white;
-         padding: 30px;
-         border-radius: 8px;
-         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-       }
-       
-       h2 {
-         margin: 0 0 10px 0;
-         color: #333;
-         text-align: center;
-       }
-       
-       .subtitle {
-         font-size: 14px;
-         color: #777;
-         text-align: center;
-         margin-bottom: 25px;
-       }
-       
-       .input-group {
-         margin-bottom: 15px;
-       }
-       
-       label {
-         display: block;
-         margin-bottom: 5px;
-         font-weight: bold;
-         font-size: 14px;
-         color: #555;
-       }
-       
-       input[type="text"],
-       input[type="number"] {
-         width: 100%;
-         padding: 10px;
-         border: 1px solid #ddd;
-         border-radius: 4px;
-         box-sizing: border-box; /* keeps input inside the card */
-       }
-       
-       .checkbox-group {
-         margin: 20px 0;
-         display: flex;
-         align-items: center;
-         gap: 10px;
-         font-size: 14px;
-       }
-       
-       .button-row {
-         display: flex;
-         flex-direction: column;
-         gap: 10px;
-       }
-       
-       .btn-save {
-         background-color: #007bff;
-         color: white;
-         border: none;
-         padding: 12px;
-         border-radius: 4px;
-         font-weight: bold;
-         cursor: pointer;
-         font-size: 16px;
-       }
-       
-       .btn-save:hover {
-         background-color: #0056b3;
-       }
-       
-       .btn-back {
-         text-align: center;
-         text-decoration: none;
-         color: #888;
-         font-size: 14px;
-         margin-top: 5px;
-       }
-       
-       .btn-back:hover {
-         color: #333;
-       }
-  </style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+           body {
+             font-family: 'Poppins', sans-serif;
+             background-color: #0f172a; /* Deep Midnight Blue */
+             background-image: radial-gradient(circle at 2px 2px, #1e293b 1px, transparent 0);
+             background-size: 40px 40px; /* Subtle grid pattern */
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             min-height: 100vh;
+             margin: 0;
+             color: #f8fafc;
+           }
+           
+           form {
+             background: #1e293b;
+             padding: 3rem;
+             border-radius: 16px;
+             width: 100%;
+             max-width: 480px;
+             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+             border: 1px solid #334155;
+           }
+           
+           h3 {
+             font-weight: 600;
+             letter-spacing: -0.025em;
+             color: #38bdf8; /* Sky Blue accent */
+             margin-bottom: 2rem;
+             text-align: left;
+           }
+           
+           h4 {
+             color: #94a3b8;
+             text-transform: uppercase;
+             font-size: 0.75rem;
+             letter-spacing: 0.1em;
+             margin-top: 2rem;
+           }
+           
+           label {
+             display: block;
+             font-size: 0.8rem;
+             color: #94a3b8;
+             margin-bottom: 8px;
+             margin-top: 1.5rem;
+           }
+           
+           input, select {
+             width: 100%;
+             background: #0f172a;
+             border: 1px solid #334155;
+             border-radius: 8px;
+             padding: 12px 16px;
+             color: white;
+             font-size: 1rem;
+             transition: all 0.3s ease;
+             box-sizing: border-box;
+           }
+           
+           input:focus, select:focus {
+             outline: none;
+             border-color: #38bdf8;
+             box-shadow: 0 0 0 1px #38bdf8;
+           }
+           
+           /* Button Group Style */
+           div:has(button[type="button"]) {
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+             gap: 1rem;
+             margin: 1.5rem 0;
+           }
+           
+           button[type="button"] {
+             background: #334155;
+             border: 1px solid #475569;
+             color: #cbd5e1;
+             padding: 12px;
+             border-radius: 8px;
+             cursor: pointer;
+             font-weight: 600;
+             transition: all 0.2s;
+           }
+           
+           button[type="button"]:hover {
+             background: #475569;
+             color: white;
+           }
+           
+           /* Active State */
+           button.active {
+             background: #0ea5e9;
+             color: white;
+             border-color: #38bdf8;
+           }
+           
+           button[type="submit"] {
+             width: 100%;
+             padding: 16px;
+             margin-top: 2rem;
+             border-radius: 8px;
+             border: none;
+             background: linear-gradient(to right, #38bdf8, #818cf8);
+             color: white;
+             font-weight: 700;
+             font-size: 1rem;
+             cursor: pointer;
+             text-transform: uppercase;
+             letter-spacing: 0.05em;
+             transition: opacity 0.3s, transform 0.2s;
+           }
+           
+           button[type="submit"]:hover {
+             opacity: 0.9;
+             transform: translateY(-2px);
+           }
+           
+           button[type="submit"]:active {
+             transform: translateY(0);
+           }
+</style>
 </head>
 <body>
 
-<div class="simple-container">
-  <form class="edit-card">
-    <h2>Modifier mon profil</h2>
-    <p class="subtitle">Mettez à jour vos informations d'avocat</p>
+<form method="POST" action="">
 
-    <div class="input-group">
-      <label>Nom complet</label>
-      <input type="text" name="name" value="Me. Marc Dupont">
-    </div>
+  <!-- COMMUN -->
+  <h3>Informations générales</h3>
 
-    <div class="input-group">
-      <label>Ville</label>
-      <input type="text" name="ville" value="Paris">
-    </div>
+  <label for="name">Nom complet</label>
+  <input type="text" id="name" name="name" value="<?=$Result['name']?>" required>
 
-    <div class="input-group">
-      <label>Spécialité</label>
-      <input type="text" name="specialite" value="Droit de la Famille">
-    </div>
+  <label for="annee_experience">Années d'expérience</label>
+  <input type="number" id="annee_experience" value="<?=$Result['annee_experience']?>" name="annee_experience" required>
 
-    <div class="input-group">
-      <label>Années d'expérience</label>
-      <input type="number" name="experience" value="12">
-    </div>
+  <label for="ville">Ville</label>
+     <select type="text" id="ville" name="ville" >
+       <option value="<?= $Result['ville_id'] ?>"><?= $LaVille ?></option>
+       <?php 
+        foreach($leTout as $villee) { 
+            ?>
+        <option value="<?= $villee['id'] ?>"><?= $villee['name'] ?></option>
+        <?php } ?>
+      </select>
 
-    <div class="checkbox-group">
-      <input type="checkbox" id="online" checked>
-      <label for="online">Disponible pour consultation en ligne</label>
-    </div>
+  <!-- BUTTONS -->
+  <!-- <div>
+    <button type="button" id="btn-avocat">Avocat</button>
+    <button type="button" id="btn-huissier">Huissier</button>
+  </div> -->
 
-    <div class="button-row">
-      <button type="submit" class="btn-save">Enregistrer</button>
-      <a href="#" class="btn-back">Annuler</a>
-    </div>
-  </form>
-</div>
+  <!-- AVOCAT -->
+  
+  <div id="avocat-fields" style="display:block;">
+    <h4>Détails Avocat</h4>
+    
+    <label for="specialite">Spécialité</label>
+
+    <select type="text" id="specialite" name="specialite">
+      <option value="<?=$Result['specialitée']?>"><?=$Result['specialitée']?></option>
+      <option value="Droit_pénal">Droit Pénal</option>
+      <option value="civil">Droit Civil</option>
+      <option value="famille">Droit de la Famille</option>
+      <option value="affaires">Droit des Affaires</option>
+    </select>
+
+    <label for="consultation">Consultation en ligne</label>
+    <select id="consultation" name="consultation">
+      <option value="1">Oui</option>
+      <option value="0">Non</option>
+    </select>
+  </div>
+  
+  <!-- HUISSIER -->
+  <!-- <div id="huissier-fields" style="display:none;">
+    <h4>Détails Huissier</h4>
+    
+    <label for="type_acte">Type d'actes</label>
+
+    <select type="text" id="type_acte" name="type_acte">
+      <option value="">le tout</option>
+      <option value="Signification">Signification</option>
+      <option value="exécution">Exécution</option>
+      <option value="constats">Constats</option>
+    </select>
+  </div> -->
+  
+  <br>
+  <button type="submit" name="submit">Envoyer</button>
+
+</form>
+
+<!-- JS -->
+<!-- <script>
+  const btnAvocat = document.getElementById("btn-avocat");
+  const btnHuissier = document.getElementById("btn-huissier");
+
+  const avocatFields = document.getElementById("avocat-fields");
+  const huissierFields = document.getElementById("huissier-fields");
+
+  btnAvocat.addEventListener("click", () => {
+    avocatFields.style.display = "block";
+    huissierFields.style.display = "none";
+  });
+  // btnAvocat.addEventListener("dblclick", () => {
+  //   avocatFields.style.display = "none";
+  // });
+
+
+
+
+
+  btnHuissier.addEventListener("click", () => {
+    huissierFields.style.display = "block";
+    avocatFields.style.display = "none";
+  });
+  //  btnHuissier.addEventListener("dblclick", () => {
+  //   huissierFields.style.display = "none";
+  // });
+</script> -->
 
 </body>
 </html>
