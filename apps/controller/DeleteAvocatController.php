@@ -1,7 +1,9 @@
 <?php
-
-
+use models\Avocat;
 use models\Ville;
+use services\Database;
+$Pdo=Database::getConnection();
+
 $ville = new Ville($Pdo);
 $leTouts = $ville->getAllFromVille();
 
@@ -9,9 +11,7 @@ $leTouts = $ville->getAllFromVille();
 
 $id = $_GET['id'];
 
-use models\Avocat;
-use services\Database;
-$Pdo=Database::getConnection();
+
 
 $avocat=new Avocat($Pdo);
 $avocat->Delete("avocats",$id);

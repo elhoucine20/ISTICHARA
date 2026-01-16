@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Annuaire des Professionnels</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="src/views/public/script.js" defer></script>
          <style>
         .navbar-brand { font-weight: bold; color: #2c3e50; }
         .nav-link:hover { color: #3498db !important; }
@@ -186,7 +187,7 @@
          align-items: center;
      }
      
-     .status-online { font-size: 0.8rem; color: #10b981; font-weight: 500; }
+     .status-online { font-size: 0.8rem; color: #0422a5; font-weight: 500; }
      .status-offline { font-size: 0.8rem; color: #94a3b8; }
      
      .view-btn {
@@ -215,7 +216,7 @@
             <p>Trouvez l'expert adapté à vos besoins</p>
         </div>
         <div class="search-box">
-            <input type="text" placeholder="Rechercher par nom ou ville...">
+            <input type="text" id="inputRecherch" placeholder="Rechercher par nom ou ville...">
         </div>
     </header>
 
@@ -227,9 +228,9 @@
 
     <a href="Create"><button class="btn-add" >Ajouter +</button></a>
     <br><br><br>
-    <div class="profile-grid">
+    <div id="devAll" class="profile-grid">
         <?php  foreach($Avocats as $avocat){?>
-        <div class="profile-card">
+     <div id="dev1" class="profile-card">
             <div class="card-header">
                 <span class="badge avocat">Avocat</span>
               <a href="DeleteAvocat&id=<?=$avocat['id']?>">
@@ -246,7 +247,10 @@
             <div class="card-footer">
                 <?php if($avocat['consultation_en_ligne']==true){?>
                 <span class="status-online">Consultation en ligne ✅</span>
+                <?php }else{?>
+                <span class="status-online">Pas de Consultation ❌</span>
                 <?php }?>
+
              <a href="ModifierAvocat&id=<?=$avocat['id']?>">
                    <button class="location">Modifier</button>
               </a>              
@@ -274,7 +278,7 @@
  <!-- ----------------- -->
  
       <?php  foreach($Huissiers as $huissier){?>
-        <div class="profile-card">
+        <div id="dev2" class="profile-card">
             <div class="card-header">
                 <span class="badge huissier">Huissier</span>
               <a href="DeleteHuissier&id=<?=$huissier['id']?>">
@@ -302,6 +306,11 @@
 
     </div>
 </div>
+<script>
 
+  
+      
+
+</script>
 </body>
 </html>

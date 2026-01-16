@@ -13,6 +13,7 @@ class Roater
     "DeleteAvocat" => "DeleteAvocatController",
     "ModifierHuissier" => "ModifierHuissierController",
     "ModifierAvocat" => "ModifierAvocatController",
+    "membres" => "membresController",
   ];
 
   public static function Routerr()

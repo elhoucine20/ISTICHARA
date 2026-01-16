@@ -34,12 +34,23 @@ public function Delete($table,$id){
 }
 
 
-
+    // method de 
     public function getAll($id,$table){
         $stmt = $this->connection->prepare("SELECT * FROM $table WHERE id = :id");
         $stmt->execute([':id'=>$id]);
         $result=$stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
+    }
+
+
+    // method de search 
+    public function getSearch($name,$table){
+        $stmt = $this->connection->prepare("SELECT * FROM $table WHERE name LIKE '$name%' ");
+        $stmt->execute();
+        $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $result;
+
     }
 
 

@@ -1,11 +1,9 @@
 <?php
 
-
 use models\Avocat;
 use models\Huissier;
 use services\Database;
 $Pdo=Database::getConnection();
-
 
 use models\Ville;
 $ville = new Ville($Pdo);
@@ -33,7 +31,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             $avocat->CreateAvocat($name,$ann_experience,$specialite,$consultation,$ville_id);
              header("location:roster");  
             }
-         
+
 }
-            
+
             require_once "src/views/formulaires/Create.php";
+
