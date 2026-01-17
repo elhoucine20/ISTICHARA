@@ -112,12 +112,12 @@
          background: white;
          cursor: pointer;
          font-weight: 500;
-         color: #64748b;
+         color: #000000;
          box-shadow: 0 2px 4px rgba(0,0,0,0.05);
      }
      
      .filter-btn.active {
-         background: var(--primary);
+         background: var(--avocat-text);
          color: white;
      }
      
@@ -176,6 +176,7 @@
      
      .profile-info h3 { margin: 0; font-size: 1.2rem; }
      .specialty { color: var(--accent); font-weight: 600; margin: 5px 0; }
+     .specialtyy { color: #a74e4e; font-weight: 600; margin: 5px 0; }
      .exp { font-size: 0.9rem; color: #64748b; }
      
      .card-footer {
@@ -221,9 +222,9 @@
     </header>
 
     <div class="filter-bar">
-        <button class="filter-btn active">Tous</button>
-        <button class="filter-btn">Avocats</button>
-        <button class="filter-btn">Huissiers</button>
+        <button  id="leToutS" class="filter-btn active">Tous</button>
+        <button id="AvocatsBTN" class="filter-btn">Avocats</button>
+        <button id="Huissirs" class="filter-btn">Huissiers</button>
     </div>
 
     <a href="Create"><button class="btn-add" >Ajouter +</button></a>
@@ -288,7 +289,7 @@
             <div class="profile-info">
                 <div class="avatar">HU</div>
                 <h3><?= $huissier['name'] ?></h3>
-                <p class="specialty"><?= $huissier['types_actes'] ?></p>
+                <p class="specialtyy"><?= $huissier['types_actes'] ?></p>
                 <p class="exp"><?= $huissier['annee_experience'] ?> ans d'expérience</p>
                 <p class="exp">Location : <?= $Ville->getVille($huissier['ville_id']) ?> </p>
 
