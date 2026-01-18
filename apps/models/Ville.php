@@ -27,4 +27,11 @@ class Ville
         $villes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $villes;
     }
+
+    public function checkCountVille($table,$id_ville){
+        $stmt = $this->connection->prepare("SELECT COUNT(*) FROM $table WHERE ville_id = $id_ville");
+        $stmt->execute();
+        $total = $stmt->fetchColumn();
+        return $total;
+    }
 }

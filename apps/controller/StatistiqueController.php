@@ -3,7 +3,7 @@
 use models\Avocat;
 use models\Huissier;
 use services\Database;
-// use models\Ville;
+use models\Ville;
 
 $Pdo = Database::getConnection();
 
@@ -15,6 +15,12 @@ $AllHuissiers = count($Huissier->Affichage("huissiers"));
 
 
 $TopThree = $Avocat->getTopThreeAvocats();
+  
+
+$Ville = new Ville($Pdo);
+// tout les villes
+$lesVilles = $Ville->getAllFromVille();
+
 
 
 require_once "src/views/gestion/Statistique.php";

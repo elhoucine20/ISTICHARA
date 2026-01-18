@@ -215,6 +215,29 @@
             <?php } ?>
         </table>
         </div>
+        <div>
+        <table>
+            <thead>
+
+                <th>Ville</th>
+                <th>Avocats</th>
+                <th>Huissiers</th>
+                <th>Total</th>
+            </thead>
+            <?php 
+            // $CVountDeChaqueVille = $ville->checkCountVille(); 
+            ?>
+            <?php foreach($lesVilles as $element){ ?>
+            <tbody>
+
+                <td><?= $element['name'] ?></td>
+                <td><?= $total1= $Ville->checkCountVille("avocats",$element['id'])?></td>
+                <td><?= $total2=$Ville->checkCountVille("huissiers",$element['id'])?></td>
+                <td><?= $total1 + $total2 ?></td>
+            </tbody>
+            <?php } ?>
+        </table>
+        </div>
 
         <div class="charts-section">
             <div class="card chart-container">
