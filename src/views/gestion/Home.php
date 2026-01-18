@@ -86,7 +86,7 @@
             --avocat-text: #1e40af;
             --huissier-color: #fef3c7;
             --huissier-text: #92400e;
-            --bg-body: #f8fafc;
+            --bg-body: #dddddd;
         }
 
         body {
@@ -268,12 +268,13 @@
 
 <body>
     <!-- :::::::::::::::: -->
-    <?php
-    require_once "src/views/public/header.php";
-    ?>
+ 
 
     <!-- ::::::::::::::::: -->
     <div class="display-container">
+           <?php
+    require_once "src/views/public/header.php";
+    ?>
         <header class="page-header">
             <div>
                 <h1>Annuaire Juridique</h1>

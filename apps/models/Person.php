@@ -68,4 +68,13 @@ class Person
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+
+    // statistique 2
+    public function AllByVille($table1,$table2){
+     $stmt=$this->connection->prepare("SELECT avocats.name, huissiers.name ,ville.name FROM avocats
+                                    JOIN huissiers
+                                    JOIN  ville");
+                                    $stmt->execute();
+    }
 }

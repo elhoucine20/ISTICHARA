@@ -7,7 +7,7 @@
     <title>Statistiques Juridiques</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
+<style>
         .navbar-brand {
             font-weight: bold;
             color: #2c3e50;
@@ -16,9 +16,50 @@
         .nav-link:hover {
             color: #3498db !important;
         }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
+
+        table {
+    width: 100%;
+    border-collapse: collapse; /* Removes double borders */
+    margin: 25px 0;
+    font-size: 18px;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+ 
+      
+      thead tr {
+          background-color: #404392; /* Modern green color */
+          color: #ffffff;
+          text-align: left;
+      }
+      
+      th, td {
+          padding: 12px 15px;
+      }
+      
+      tbody tr {
+          border-bottom: 1px solid #dddddd;
+      }
+      
+      /* Zebra Striping: makes every second row light gray */
+      tbody tr:nth-of-type(even) {
+          background-color: #b93939;
+      }
+      
+      /* Highlights the last row */
+      tbody tr:last-of-type {
+          border-bottom: 2px solid #4408bd;
+      }
+      
+      /* Hover effect: highlights row when mouse is over it */
+      tbody tr:hover {
+          background-color: #f1f1f1;
+          cursor: pointer;
+      }
+ </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
         :root {
             --bg-color: #f0f2f5;
             --card-bg: #ffffff;
@@ -115,42 +156,64 @@
             margin-bottom: 20px;
             color: var(--text-main);
         }
-    </style>
+</style>
 </head>
 
 <body>
 
-    <?php
-    require_once "src/views/public/header.php";
-    ?>
-
+ 
+        <header class="page-header">
+      <?php 
+      require_once "src/views/public/header.php";
+      ?>
+        </header>
     <div class="dashboard-container">
-        <header>
+
+
             <h1>Tableau de Bord Statistiques</h1>
             <p>Aperçu de l'activité des Avocats et Huissiers</p>
-        </header>
+  
 
         <div class="metrics-grid">
             <div class="card metric">
                 <span class="label">Total Profils</span>
-                <div class="value">1,284</div>
+                <div class="value"><?= $AllAvocats +  $AllHuissiers  ?></div>
                 <span class="trend positive">+12% ce mois</span>
             </div>
             <div class="card metric">
                 <span class="label">Avocats</span>
-                <div class="value">842</div>
+                <div class="value"><?= $AllAvocats ?></div>
                 <span class="subtext">65% du total</span>
             </div>
             <div class="card metric">
                 <span class="label">Huissiers</span>
-                <div class="value">442</div>
+                <div class="value"><?= $AllHuissiers ?></div>
                 <span class="subtext">35% du total</span>
             </div>
-            <div class="card metric">
+            <!-- <div class="card metric">
                 <span class="label">Consultations</span>
                 <div class="value">3,150</div>
                 <span class="trend positive">+5.4%</span>
-            </div>
+            </div> -->
+        </div>
+        <div class="card metric">
+
+        <h2 style="text-align: center;">Top 3 Avocats</h2>
+        <table>
+            <thead>
+
+                <th>id</th>
+                <th>Name</th>
+                <th>anne experience</th>
+            </thead>
+            <?php foreach($TopThree as $avocat){ ?>
+            <tbody>
+                <td><?= $avocat['id'] ?></td>
+                <td><?= $avocat['name'] ?></td>
+                <td><?= $avocat['annee_experience'] ?></td>
+            </tbody>
+            <?php } ?>
+        </table>
         </div>
 
         <div class="charts-section">

@@ -39,6 +39,13 @@ class Avocat extends Person
         ]);
     }
 
+    // top 3 statistique
+    public function getTopThreeAvocats(){
+        $stmt = $this->connection->prepare("SELECT * FROM avocats  ORDER BY annee_experience DESC LIMIT 3");
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 
   
 
