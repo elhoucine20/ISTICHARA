@@ -1,4 +1,5 @@
 <?php
+
 namespace models;
 
 
@@ -6,7 +7,8 @@ namespace models;
 // use services\Database;
 use PDO;
 
-class Person {
+class Person
+{
     protected int $id;
     protected string $Name;
     protected string $ville;
@@ -16,42 +18,54 @@ class Person {
 
     public function __construct($pdo)
     {
-      $this->connection=$pdo;
+        $this->connection = $pdo;
     }
 
-       public function Affichage($table){
+    public function Affichage($table)
+    {
 
-       $result= $this->connection->query("SELECT * FROM $table")->fetchAll(PDO::FETCH_ASSOC);;
-        // $resultt = $stmt->execute();
-
-        //  $result = $resultt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $this->connection->prepare("SELECT * FROM $table ");
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
-    } 
+    }
 
-public function Delete($table,$id){
-    $stmt = $this->connection->prepare("DELETE FROM $table WHERE id = :idd");
-    $stmt->execute([':idd'=>$id]);
-}
+    public function Delete($table, $id)
+    {
+        $stmt = $this->connection->prepare("DELETE FROM $table WHERE id = :idd");
+        $stmt->execute([':idd' => $id]);
+    }
 
 
     // method de 
-    public function getAll($id,$table){
-        $stmt = $this->connection->prepare("SELECT * FROM $table WHERE id = :id");
-        $stmt->execute([':id'=>$id]);
-        $result=$stmt->fetch(PDO::FETCH_ASSOC);
+    public function getAll($id, $table)
+    {
+        $stmt = $this->connection->prepare("SELECT * FROM :tab WHERE id = :id");
+        $stmt->execute([':tab' => $table, ':id' => $id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
 
 
     // method de search 
-    public function getSearch($name,$table){
+    public function getSearch($name, $table)
+    {
         $stmt = $this->connection->prepare("SELECT * FROM $table WHERE name LIKE '$name%' ");
         $stmt->execute();
-        $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
-        
-        return $result;
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        return $result;
     }
 
 
+
+     // method for pagination 
+    public function AfichageByLimit($table, $offset)
+    {
+        $stmt = $this->connection->prepare("SELECT * FROM $table  LIMIT 3 OFFSET $offset");
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }

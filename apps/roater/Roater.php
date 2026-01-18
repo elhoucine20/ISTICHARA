@@ -1,4 +1,5 @@
 <?php
+
 namespace roater;
 
 class Roater
@@ -23,8 +24,7 @@ class Roater
     if (array_key_exists($page, self::$Route)) {
       $controllerName = self::$Route[$page];
       require_once "apps/controller/" . $controllerName . ".php";
-    }
-     else {
+    } else {
       echo "404 Page not exist";
     }
   }

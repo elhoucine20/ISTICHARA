@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom mb-4">
     <div class="container">
         <a class="navbar-brand" href="Home">ISTICHARA</a>
@@ -10,12 +9,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="roster">Accueil</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="roster">Avocats</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="roster">Huissiers</a>
-                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="Statistique">Statistique</a>
                 </li>

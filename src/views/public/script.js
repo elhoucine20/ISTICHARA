@@ -5,11 +5,12 @@ let input = document.getElementById('inputRecherch');
 let dev1 = document.getElementById('dev1');
 let dev2 = document.getElementById('dev2');
 let devAll = document.getElementById('devAll');
-    let avocats = [];
-    let huissiers = [];
+let avocats = [];
+let huissiers = [];
 
 // fucntion affichage
-    function RecherchAffichageAvocats(avocats){
+function RecherchAffichageAvocats(avocats) {
+
     avocats.forEach((element) => {
         devAll.innerHTML += `
      <div id="dev1" class="profile-card">
@@ -37,10 +38,10 @@ let devAll = document.getElementById('devAll');
         </div> 
         
                            `
-                           avocats=[];
+        avocats = [];
     });
 }
-function RecherchAffichageHuissiers(huissiers){
+function RecherchAffichageHuissiers(huissiers) {
 
     huissiers.forEach((element) => {
         devAll.innerHTML += `
@@ -68,12 +69,12 @@ function RecherchAffichageHuissiers(huissiers){
         </div>
             
             `
-            huissiers=[];
+        huissiers = [];
     });
 
-    }
+}
 
-    // fetch data
+// fetch data
 async function fetchAll(Name) {
     let response = await fetch("http://localhost/istichARA/membres&query=" + Name);
     let Data = await response.json();
@@ -88,19 +89,20 @@ input.addEventListener('input', async function () {
     let Name = input.value;
     let Data = await fetchAll(Name);
 
-// filter data avocats et huissiers
+    // filter data avocats et huissiers
     Data.forEach((element) => {
         let spec = element.specialitée;
-        if (spec|| spec === "affaires" || spec === "famille" || spec === "droit_pénal" || spec === "civil") {
-          avocats.push(element);
+        if (spec || spec === "affaires" || spec === "famille" || spec === "droit_pénal" || spec === "civil") {
+            avocats.push(element);
         } else {
             huissiers.push(element);
         }
 
     });
-RecherchAffichageAvocats(avocats);
-RecherchAffichageHuissiers(huissiers);
-
+    RecherchAffichageAvocats(avocats);
+    RecherchAffichageHuissiers(huissiers);
+    avocats = [];
+    huissiers = [];
 })
 
 
@@ -112,7 +114,7 @@ let leToutS = document.getElementById('leToutS')
 
 
 
-    // fetch data
+// fetch data
 async function filterAll(usertype) {
     let response = await fetch("http://localhost/istichARA/membres&filter=" + usertype);
     let Data = await response.json();
@@ -121,41 +123,50 @@ async function filterAll(usertype) {
 }
 
 // avocats
-Avocats.addEventListener('click',async function(){
-     Avocats.classList='active';
-     Huissirs.classList='filter-btn';
-     leToutS.className='filter-btn';
-    console.log("active btn ");
+let pagination = document.getElementById('pagination');
+
+Avocats.addEventListener('click', async function () {
+    console.log(pagination);
+    pagination.style.display = "none";
+    
+    Avocats.classList = 'active';
+    Huissirs.classList = 'filter-btn';
+    leToutS.className = 'filter-btn';
+    // console.log("active btn ");
     devAll.innerHTML = "";
-      let LesAvocats = await filterAll("avocat");
-       RecherchAffichageAvocats(LesAvocats);
+    let LesAvocats = await filterAll("avocat");
+    RecherchAffichageAvocats(LesAvocats);
 })
 
 // huissiers
-Huissirs.addEventListener('click',async function(){
-     Huissirs.classList='active';
-     Avocats.className="filter-btn";
-     leToutS.className='filter-btn';
+Huissirs.addEventListener('click', async function () {
+    pagination.style.display = "none";
+
+    Huissirs.classList = 'active';
+    Avocats.className = "filter-btn";
+    leToutS.className = 'filter-btn';
 
     console.log("active btn ");
     devAll.innerHTML = "";
-      let LesHuissiers = await filterAll("huissier");
-       RecherchAffichageHuissiers(LesHuissiers);
+    let LesHuissiers = await filterAll("huissier");
+    RecherchAffichageHuissiers(LesHuissiers);
 })
 
 // le tout
-leToutS.addEventListener('click',async function(){
-     Huissirs.className='filter-btn';
-     Avocats.className="filter-btn";
-     leToutS.classList='active';
+leToutS.addEventListener('click', async function () {
+
+    Huissirs.className = 'filter-btn';
+    Avocats.className = "filter-btn";
+    leToutS.classList = 'active';
 
     // console.log("active btn ");
     devAll.innerHTML = "";
-      let LesAvocats = await filterAll("avocat");
-      let LesHuissiers = await filterAll("huissier");
-       RecherchAffichageAvocats(LesAvocats);
-       RecherchAffichageHuissiers(LesHuissiers);
-
+    let LesAvocats = await filterAll("avocat");
+    let LesHuissiers = await filterAll("huissier");
+    
+    RecherchAffichageAvocats(LesAvocats);
+    RecherchAffichageHuissiers(LesHuissiers);
+    pagination.style.display = "flex";
 
 })
 
